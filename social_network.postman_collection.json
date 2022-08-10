@@ -1,0 +1,373 @@
+{
+	"info": {
+		"_postman_id": "dfe46a75-25d3-48e9-9155-ab4f8b7dbb6c",
+		"name": "social_network",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"user4\",\r\n    \"password\": \"pass4\",\r\n    \"first_name\": \"name4\",\r\n    \"last_name\": \"lastname4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Access Token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "refresh",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY2MDAzNjc0NywiaWF0IjoxNjU5OTUwMzQ3LCJqdGkiOiJkODYzMjQ5NjhlNjk0OTgwOTI5YmU4NmI2YTlkYWU5ZSIsInVzZXJfaWQiOjF9.1RXmKgxg7bbqxLTST5-OMlLxQv98M8o1BQs6N1Kn_90",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "user3",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pass3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "refresh",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY2MTMxOTA0OSwiaWF0IjoxNjYwMDIzMDQ5LCJqdGkiOiI0MTdhMjhmMWM3OWI0NDlhYTA2ZGQyYWJjOTFkM2FmMiIsInVzZXJfaWQiOjEsInVzZXJuYW1lIjoiYWRtaW4ifQ.KabNXN_4nkSiVtcsvNh9jzbFXj1aUppBc-z-rgHbo68",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/refresh",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Posts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYwMTA4OTM4LCJpYXQiOjE2NjAxMDgwMzgsImp0aSI6IjMxMGVjZDg1OTBmYjQzNjNiYjg5NzQxMmYxNjM4ZGUwIiwidXNlcl9pZCI6NCwidXNlcm5hbWUiOiJ1c2VyMyJ9.5oIkdTbLMIKcXh_oB0QrZVQalwIfJL7TMA_wpiVQS2M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authoriz",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/posts",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYwMTA5NTM5LCJpYXQiOjE2NjAxMDg2MzksImp0aSI6IjlmMjIxZDY3ZTQ0NTQwM2Q4ZTk1YmU4YzE5MmM4NWRmIiwidXNlcl9pZCI6NSwidXNlcm5hbWUiOiJ1c2VyNCJ9.ciWjcgpzofQPXDRrLIKlc-R2gqbCeLAK4XImuDjlv6Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authoriz",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"title\": \"mypost\",\r\n        \"url\": \"http://google.com\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/posts/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"posts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vote",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYwMTA4OTM4LCJpYXQiOjE2NjAxMDgwMzgsImp0aSI6IjMxMGVjZDg1OTBmYjQzNjNiYjg5NzQxMmYxNjM4ZGUwIiwidXNlcl9pZCI6NCwidXNlcm5hbWUiOiJ1c2VyMyJ9.5oIkdTbLMIKcXh_oB0QrZVQalwIfJL7TMA_wpiVQS2M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/posts/1/vote",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"posts",
+						"1",
+						"vote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unvote",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYwMTA4OTM4LCJpYXQiOjE2NjAxMDgwMzgsImp0aSI6IjMxMGVjZDg1OTBmYjQzNjNiYjg5NzQxMmYxNjM4ZGUwIiwidXNlcl9pZCI6NCwidXNlcm5hbWUiOiJ1c2VyMyJ9.5oIkdTbLMIKcXh_oB0QrZVQalwIfJL7TMA_wpiVQS2M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/posts/1/vote",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"posts",
+						"1",
+						"vote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Votes analytics",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYwMTA4OTM4LCJpYXQiOjE2NjAxMDgwMzgsImp0aSI6IjMxMGVjZDg1OTBmYjQzNjNiYjg5NzQxMmYxNjM4ZGUwIiwidXNlcl9pZCI6NCwidXNlcm5hbWUiOiJ1c2VyMyJ9.5oIkdTbLMIKcXh_oB0QrZVQalwIfJL7TMA_wpiVQS2M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/votes_analytics/?start=07-08-2022&end=01-09-2022",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"votes_analytics",
+						""
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "07-08-2022"
+						},
+						{
+							"key": "end",
+							"value": "01-09-2022"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User analytics",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYwMTA4OTM4LCJpYXQiOjE2NjAxMDgwMzgsImp0aSI6IjMxMGVjZDg1OTBmYjQzNjNiYjg5NzQxMmYxNjM4ZGUwIiwidXNlcl9pZCI6NCwidXNlcm5hbWUiOiJ1c2VyMyJ9.5oIkdTbLMIKcXh_oB0QrZVQalwIfJL7TMA_wpiVQS2M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user_analytics/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user_analytics",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
